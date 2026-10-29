@@ -30,7 +30,22 @@ module.exports.handler = async (event, context) => {
   })
   server.use((request, response, next) => {
     const mutation = ['POST', 'PUT', 'PATCH', 'DELETE'].includes(request.method)
-    if (mutation) response.once('finish', () => saveDatabase(router.db.getState()))
+    if (mutation && process.env.NETLIFY) {
+      const originalEnd = response.end.bind(response)
+      response.end = (chunk, encoding, callback) => {
+        if (response.statusCode >= 200 && response.statusCode < 400) {
+          saveDatabase(router.db.getState()).then(
+            () => originalEnd(chunk, encoding, callback),
+            error => {
+              console.error('Failed to persist database', error)
+              originalEnd(JSON.stringify({ error: 'Failed to persist data' }), 'utf8', callback)
+            }
+          )
+        } else {
+          originalEnd(chunk, encoding, callback)
+        }
+      }
+    }
     next()
   })
   server.use(router)
