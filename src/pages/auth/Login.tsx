@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { api } from '../../api/client'
 import { useApp } from '../../context/AppContext'
+import type { R } from '../../types'
 
 export function Login() {
   const { setUser, user } = useApp(); const nav = useNavigate()
