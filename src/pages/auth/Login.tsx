@@ -10,7 +10,14 @@ export function Login() {
   const go = async (e: any) => {
     e.preventDefault(); if (!f.email || !f.password) return setErr('Email and password are required')
     setBusy(true)
-    try { const { data } = await api.get('/users', { params: { email: f.email } }); const u = data[0]; if (!u || u.password !== f.password) setErr('Email or password is incorrect'); else { setUser(u); nav('/workspaces') } }
+    try {
+      const email = f.email.trim().toLowerCase()
+      const password = f.password.trim()
+      const { data } = await api.get('/users', { params: { email } })
+      const u = data.find((user: R) => String(user.email).toLowerCase() === email)
+      if (!u || u.password !== password) setErr('Email or password is incorrect')
+      else { setUser(u); nav('/workspaces') }
+    }
     catch { setErr('Server unavailable. Start JSON Server and try again.') }
     setBusy(false)
   }
