@@ -7,7 +7,7 @@ async function getDatabase() {
   if (!process.env.NETLIFY || !blobStore) return seedDb
 
   const { getStore } = require('@netlify/blobs')
-  blobStore ||= getStore({ name: 'productpulse', consistency: 'strong' })
+  blobStore ||= getStore('productpulse', { consistency: 'strong' })
   return await blobStore.get('database', { type: 'json' }) || seedDb
 }
 

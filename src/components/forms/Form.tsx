@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Field } from './Field'
 import type { R } from '../../types'
 
 export function Form({ fields, init, onSave, onClose, title, inline, submitLabel = 'Save changes' }: R) {
   const [v, setV] = useState<R>(init); const [err, setErr] = useState<R>({}); const [busy, setBusy] = useState(false)
+  useEffect(() => { setV(init || {}) }, [JSON.stringify(init)])
   const submit = async (e: any) => {
     e.preventDefault(); const er: R = {}
     fields.forEach((f: R) => {
