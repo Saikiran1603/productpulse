@@ -38,7 +38,11 @@ module.exports.handler = async (event, context) => {
             () => originalEnd(chunk, encoding, callback),
             error => {
               console.error('Failed to persist database', error)
-              originalEnd(JSON.stringify({ error: 'Failed to persist data' }), 'utf8', callback)
+              const message = JSON.stringify({ error: 'Failed to persist data' })
+              response.statusCode = 500
+              response.setHeader('Content-Type', 'application/json')
+              response.setHeader('Content-Length', Buffer.byteLength(message))
+              originalEnd(message, 'utf8', callback)
             }
           )
         } else {
