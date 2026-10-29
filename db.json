@@ -1,0 +1,509 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Olivia Owner",
+      "email": "owner@demo.com",
+      "password": "demo"
+    },
+    {
+      "id": 2,
+      "name": "Adam Admin",
+      "email": "admin@demo.com",
+      "password": "demo"
+    },
+    {
+      "id": 3,
+      "name": "Priya PM",
+      "email": "pm@demo.com",
+      "password": "demo"
+    },
+    {
+      "id": 4,
+      "name": "Carl Customer",
+      "email": "customer@demo.com",
+      "password": "demo"
+    }
+  ],
+  "workspaces": [
+    {
+      "id": 1,
+      "name": "Acme Cloud",
+      "description": "Feedback for the Acme Cloud platform",
+      "logoUrl": "",
+      "brandColor": "#4f46e5",
+      "publicRoadmap": true
+    },
+    {
+      "id": 2,
+      "name": "Bloom Studio",
+      "description": "Design tool feedback",
+      "logoUrl": "",
+      "brandColor": "#0d9488",
+      "publicRoadmap": true
+    },
+    {
+      "name": "bfgfhg",
+      "description": "hljlkl';'l;",
+      "logoUrl": "",
+      "brandColor": "#4f46e5",
+      "publicRoadmap": true,
+      "id": 3
+    }
+  ],
+  "workspaceMembers": [
+    {
+      "id": 1,
+      "workspaceId": 1,
+      "userId": 1,
+      "name": "Olivia Owner",
+      "email": "owner@demo.com",
+      "role": "owner",
+      "status": "Active"
+    },
+    {
+      "id": 2,
+      "workspaceId": 1,
+      "userId": 2,
+      "name": "Adam Admin",
+      "email": "admin@demo.com",
+      "role": "admin",
+      "status": "Active"
+    },
+    {
+      "id": 3,
+      "workspaceId": 1,
+      "userId": 3,
+      "name": "Priya PM",
+      "email": "pm@demo.com",
+      "role": "pm",
+      "status": "Active"
+    },
+    {
+      "id": 4,
+      "workspaceId": 1,
+      "userId": 4,
+      "name": "Carl Customer",
+      "email": "customer@demo.com",
+      "role": "customer",
+      "status": "Invited"
+    },
+    {
+      "id": 5,
+      "workspaceId": 2,
+      "userId": 1,
+      "name": "Olivia Owner",
+      "email": "owner@demo.com",
+      "role": "owner",
+      "status": "Active"
+    },
+    {
+      "id": 6,
+      "workspaceId": 2,
+      "userId": 4,
+      "name": "Carl Customer",
+      "email": "customer@demo.com",
+      "role": "customer",
+      "status": "Active"
+    },
+    {
+      "workspaceId": 3,
+      "userId": 2,
+      "name": "Adam Admin",
+      "email": "admin@demo.com",
+      "role": "owner",
+      "status": "Active",
+      "id": 7
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "workspaceId": 1,
+      "name": "Integrations",
+      "description": "Third-party connections"
+    },
+    {
+      "id": 2,
+      "workspaceId": 1,
+      "name": "Reporting",
+      "description": "Dashboards and exports"
+    },
+    {
+      "id": 3,
+      "workspaceId": 1,
+      "name": "Performance",
+      "description": "Speed and reliability"
+    },
+    {
+      "id": 4,
+      "workspaceId": 2,
+      "name": "Editor",
+      "description": "Canvas and tools"
+    }
+  ],
+  "tags": [
+    {
+      "id": 2,
+      "workspaceId": 1,
+      "name": "mobile"
+    },
+    {
+      "id": 3,
+      "workspaceId": 1,
+      "name": "enterprise"
+    },
+    {
+      "id": 4,
+      "workspaceId": 2,
+      "name": "ux"
+    }
+  ],
+  "feedback": [
+    {
+      "id": 1,
+      "workspaceId": 1,
+      "title": "Slack integration",
+      "description": "Post new tickets to a Slack channel.",
+      "categoryId": 1,
+      "tagIds": [
+        1
+      ],
+      "priority": "High",
+      "status": "Planned",
+      "submitter": "Carl Customer",
+      "submitterId": 4,
+      "createdAt": "2026-09-01T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "workspaceId": 1,
+      "title": "Scheduled PDF reports",
+      "description": "Email weekly PDF reports automatically.",
+      "categoryId": 2,
+      "tagIds": [
+        3
+      ],
+      "priority": "Medium",
+      "status": "Under Review",
+      "submitter": "Carl Customer",
+      "submitterId": 4,
+      "createdAt": "2026-09-10T10:00:00Z"
+    },
+    {
+      "id": 3,
+      "workspaceId": 1,
+      "title": "Faster dashboard loading",
+      "description": "Dashboard takes 8s to load on large accounts.",
+      "categoryId": 3,
+      "tagIds": [
+        2
+      ],
+      "priority": "Critical",
+      "status": "In Progress",
+      "submitter": "Priya PM",
+      "submitterId": 3,
+      "createdAt": "2026-09-15T10:00:00Z"
+    },
+    {
+      "id": 4,
+      "workspaceId": 1,
+      "title": "Slack notifications",
+      "description": "Notify me in Slack when status changes.",
+      "categoryId": 1,
+      "tagIds": [
+        1
+      ],
+      "priority": "Medium",
+      "status": "Closed",
+      "duplicateOf": 1,
+      "submitter": "Adam Admin",
+      "submitterId": 2,
+      "createdAt": "2026-09-20T10:00:00Z"
+    },
+    {
+      "id": 5,
+      "workspaceId": 1,
+      "title": "CSV export",
+      "description": "Export feedback list to CSV.",
+      "categoryId": 2,
+      "tagIds": [],
+      "priority": "Low",
+      "status": "Completed",
+      "submitter": "Carl Customer",
+      "submitterId": 4,
+      "createdAt": "2026-08-20T10:00:00Z"
+    },
+    {
+      "id": 6,
+      "workspaceId": 2,
+      "title": "Snap to grid",
+      "description": "Add snapping on the canvas.",
+      "categoryId": 4,
+      "tagIds": [
+        4
+      ],
+      "priority": "Medium",
+      "status": "Open",
+      "submitter": "Carl Customer",
+      "submitterId": 4,
+      "createdAt": "2026-09-18T10:00:00Z"
+    },
+    {
+      "priority": "Medium",
+      "status": "Open",
+      "tagIds": [
+        4
+      ],
+      "title": "gfhg",
+      "description": "jhkjkj",
+      "categoryId": 4,
+      "submitter": "Olivia Owner",
+      "submitterId": 1,
+      "workspaceId": 2,
+      "createdAt": "2026-10-22T05:00:16.273Z",
+      "id": 7
+    }
+  ],
+  "votes": [
+    {
+      "id": 1,
+      "workspaceId": 1,
+      "feedbackId": 1,
+      "userId": 4
+    },
+    {
+      "id": 2,
+      "workspaceId": 1,
+      "feedbackId": 1,
+      "userId": 2
+    },
+    {
+      "id": 3,
+      "workspaceId": 1,
+      "feedbackId": 3,
+      "userId": 4
+    },
+    {
+      "id": 4,
+      "workspaceId": 1,
+      "feedbackId": 2,
+      "userId": 3
+    },
+    {
+      "id": 5,
+      "workspaceId": 2,
+      "feedbackId": 6,
+      "userId": 4
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "workspaceId": 1,
+      "feedbackId": 1,
+      "userId": 3,
+      "author": "Priya PM",
+      "text": "Scoped for next quarter.",
+      "createdAt": "2026-09-02T09:00:00Z"
+    },
+    {
+      "workspaceId": 1,
+      "feedbackId": 3,
+      "userId": 3,
+      "author": "Priya PM",
+      "text": "nkkjlkk",
+      "createdAt": "2026-10-22T05:24:43.828Z",
+      "id": 2
+    },
+    {
+      "workspaceId": 1,
+      "feedbackId": 3,
+      "userId": 4,
+      "author": "Carl Customer",
+      "text": "hello",
+      "createdAt": "2026-10-23T03:19:51.149Z",
+      "id": 3
+    }
+  ],
+  "roadmapItems": [
+    {
+      "id": 2,
+      "workspaceId": 1,
+      "title": "Report scheduling",
+      "description": "Weekly PDF digests",
+      "stage": "Under Review",
+      "published": true,
+      "feedbackIds": [
+        2
+      ]
+    },
+    {
+      "id": 3,
+      "workspaceId": 1,
+      "title": "Dashboard performance",
+      "description": "Query caching",
+      "stage": "In Progress",
+      "published": true,
+      "feedbackIds": [
+        3
+      ]
+    },
+    {
+      "id": 4,
+      "workspaceId": 1,
+      "title": "CSV export",
+      "description": "Download data as CSV",
+      "stage": "Completed",
+      "published": true,
+      "feedbackIds": [
+        5
+      ]
+    },
+    {
+      "title": "bfngg",
+      "description": "jhkul",
+      "stage": "Under Review",
+      "published": true,
+      "feedbackIds": [
+        7,
+        6
+      ],
+      "workspaceId": 2,
+      "createdAt": "2026-10-22T05:01:52.290Z",
+      "id": 5
+    }
+  ],
+  "releaseNotes": [
+    {
+      "id": 1,
+      "workspaceId": 1,
+      "version": "1.4.0",
+      "title": "CSV export",
+      "releaseDate": "2026-09-30",
+      "summary": "Export any list to CSV.",
+      "status": "Published",
+      "featureIds": [
+        4
+      ]
+    }
+  ],
+  "subscriptionPlans": [
+    {
+      "id": 1,
+      "name": "Free",
+      "price": 0,
+      "limits": {
+        "members": 5,
+        "feedback": 10,
+        "roadmapItems": 6
+      }
+    },
+    {
+      "id": 2,
+      "name": "Pro",
+      "price": 49,
+      "limits": {
+        "members": 50,
+        "feedback": 1000,
+        "roadmapItems": 200
+      }
+    }
+  ],
+  "workspaceSubscriptions": [
+    {
+      "id": 1,
+      "workspaceId": 1,
+      "planId": 2
+    },
+    {
+      "id": 2,
+      "workspaceId": 2,
+      "planId": 1
+    },
+    {
+      "workspaceId": 3,
+      "planId": 1,
+      "id": 3
+    }
+  ],
+  "activityLogs": [
+    {
+      "id": 1,
+      "workspaceId": 1,
+      "user": "Priya PM",
+      "text": "Moved Dashboard performance to In Progress",
+      "at": "2026-09-16T08:00:00Z"
+    },
+    {
+      "workspaceId": 2,
+      "user": "Olivia Owner",
+      "text": "submitted feedback: gfhg",
+      "at": "2026-10-22T05:00:16.318Z",
+      "id": 2
+    },
+    {
+      "workspaceId": 2,
+      "user": "Olivia Owner",
+      "text": "Created Roadmap items: bfngg",
+      "at": "2026-10-22T05:01:52.334Z",
+      "id": 3
+    },
+    {
+      "workspaceId": 2,
+      "user": "Olivia Owner",
+      "text": "changed plan to Pro",
+      "at": "2026-10-22T05:03:17.287Z",
+      "id": 4
+    },
+    {
+      "workspaceId": 2,
+      "user": "Olivia Owner",
+      "text": "changed plan to Free",
+      "at": "2026-10-22T05:03:21.318Z",
+      "id": 5
+    },
+    {
+      "workspaceId": 2,
+      "user": "Olivia Owner",
+      "text": "changed plan to Pro",
+      "at": "2026-10-22T05:03:24.124Z",
+      "id": 6
+    },
+    {
+      "workspaceId": 2,
+      "user": "Olivia Owner",
+      "text": "changed plan to Free",
+      "at": "2026-10-22T05:03:26.349Z",
+      "id": 7
+    },
+    {
+      "workspaceId": 1,
+      "user": "Olivia Owner",
+      "text": "changed plan to Free",
+      "at": "2026-10-22T05:28:56.956Z",
+      "id": 8
+    },
+    {
+      "workspaceId": 1,
+      "user": "Adam Admin",
+      "text": "Deleted Roadmap items: Slack integration",
+      "at": "2026-10-23T03:22:36.218Z",
+      "id": 9
+    },
+    {
+      "workspaceId": 1,
+      "user": "Adam Admin",
+      "text": "Updated Tags: ai",
+      "at": "2026-10-23T03:23:11.340Z",
+      "id": 10
+    },
+    {
+      "workspaceId": 1,
+      "user": "Adam Admin",
+      "text": "Deleted Tags: ai",
+      "at": "2026-10-23T03:23:19.286Z",
+      "id": 11
+    }
+  ]
+}
