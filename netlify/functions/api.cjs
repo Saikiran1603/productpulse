@@ -8,11 +8,10 @@ const router = jsonServer.router(path.join(__dirname, '../../db.json'))
 
 server.use(middlewares)
 server.use((request, _response, next) => {
-  if (request.url === '/api') request.url = '/'
-  else if (request.url.startsWith('/api/')) request.url = request.url.slice(4)
-
   const functionPrefix = '/.netlify/functions/api'
   if (request.url.startsWith(functionPrefix)) request.url = request.url.slice(functionPrefix.length) || '/'
+  else if (request.url === '/api') request.url = '/'
+  else if (request.url.startsWith('/api/')) request.url = request.url.slice(4)
   next()
 })
 server.use(router)
