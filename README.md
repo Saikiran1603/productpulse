@@ -13,7 +13,7 @@ Public roadmap: `/public/1` (no login).
 owner: everything · admin: all but Subscription/Settings · pm: dashboard, feedback, roadmap, categories, release notes · customer: feedback, vote, comment, public roadmap.
 
 ## Deploy
-JSON Server must be hosted too (e.g. Render web service running `npm run api`). Deploy the frontend to Netlify/Vercel with env var `VITE_API_URL=https://your-api-host`. SPA rewrites are included (`public/_redirects`, `vercel.json`).
+Deploy on Netlify without additional environment variables. Netlify serves the frontend and its JSON Server data through the `/api` function. For Vercel, host JSON Server separately and set `VITE_API_URL` to that API URL.
 
 ## Structure
 ```
