@@ -7,7 +7,7 @@ async function getDatabase() {
   if (!process.env.NETLIFY || !blobStore) return seedDb
 
   const { getStore } = require('@netlify/blobs')
-  blobStore ||= getStore('productpulse', { consistency: 'strong' })
+  blobStore ||= getStore({ name: 'productpulse', consistency: 'strong' })
   return await blobStore.get('database', { type: 'json' }) || seedDb
 }
 
@@ -39,7 +39,8 @@ module.exports.handler = async (event, context) => {
       const originalEnd = response.end.bind(response)
       response.end = (chunk, encoding, callback) => {
         if (response.statusCode >= 200 && response.statusCode < 400) {
-          saveDatabase(router.db.getState()).then(
+          const state = JSON.parse(JSON.stringify(router.db.getState()))
+          saveDatabase(state).then(
             () => originalEnd(chunk, encoding, callback),
             error => {
               console.error('Failed to persist database', error)
