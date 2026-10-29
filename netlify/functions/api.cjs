@@ -21,6 +21,11 @@ module.exports.handler = async (event, context) => {
   const router = jsonServer.router(JSON.parse(JSON.stringify(database)))
 
   server.use(jsonServer.defaults({ logger: false }))
+  server.use((_request, response, next) => {
+    response.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+    response.setHeader('Pragma', 'no-cache')
+    next()
+  })
   server.use((request, _response, next) => {
     const functionPrefix = '/.netlify/functions/api'
     if (request.url.startsWith(functionPrefix)) request.url = request.url.slice(functionPrefix.length) || '/'

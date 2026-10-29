@@ -22,6 +22,7 @@ export function Crud({ res, title, fields, canEdit = true, limit, groupBy, guard
       if (v.id) await api.patch(`/${res}/${v.id}`, v)
       else { if (lim.reached) return toast('Plan limit reached', 'error'); await api.post('/' + res, { ...v, workspaceId: wsId, createdAt: new Date().toISOString() }) }
       setEdit(null); done('Saved', `${v.id ? 'Updated' : 'Created'} ${title}: ${name(v)}`)
+      setTimeout(r.reload, 150)
     } catch { toast('Save failed. Try again.', 'error') }
   }
   const del = async (it: R) => {

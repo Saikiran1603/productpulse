@@ -14,7 +14,7 @@ export function Subscription() {
   const sw = async (pl: R) => {
     const bad = Object.keys(pl.limits).filter(k => used[k] > pl.limits[k])
     if (bad.length) return toast(`Current usage exceeds ${pl.name} limits: ${bad.join(', ')}`, 'error')
-    try { await api.patch('/workspaceSubscriptions/' + p.sub.id, { planId: pl.id }); toast('Plan changed to ' + pl.name); logAct(wsId, user, 'changed plan to ' + pl.name); p.reload() } catch { toast('Could not change plan', 'error') }
+    try { await api.patch('/workspaceSubscriptions/' + p.sub.id, { planId: pl.id }); toast('Plan changed to ' + pl.name); logAct(wsId, user, 'changed plan to ' + pl.name); p.reload(); setTimeout(p.reload, 150) } catch { toast('Could not change plan', 'error') }
   }
   const labels: R = { members: 'Members', feedback: 'Feedback items', roadmapItems: 'Roadmap items' }
   return <div className="space-y-4"><h1 className="text-xl font-semibold">Subscription & Usage</h1>

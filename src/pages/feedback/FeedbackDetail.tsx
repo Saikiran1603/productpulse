@@ -14,11 +14,11 @@ export function FeedbackDetail() {
   const fb = useRes('feedback', { workspaceId: wsId }), cm = useRes('comments', { feedbackId: id, _sort: 'createdAt' }), vt = useRes('votes', { feedbackId: id }), ct = useRes('categories', { workspaceId: wsId }), tg = useRes('tags', { workspaceId: wsId })
   const [text, setText] = useState(''); const [err, setErr] = useState('')
   const it = fb.data.find(x => String(x.id) === id); const mgr = MGR.includes(role)
-  const patch = async (b: R, m: string) => { try { await api.patch('/feedback/' + id, b); toast(m); fb.reload() } catch { toast('Update failed', 'error') } }
+  const patch = async (b: R, m: string) => { try { await api.patch('/feedback/' + id, b); toast(m); fb.reload(); setTimeout(fb.reload, 150) } catch { toast('Update failed', 'error') } }
   const vote = async () => { try { await toggleVote(wsId, user.id, Number(id), vt.data); vt.reload() } catch { toast('Vote failed', 'error') } }
   const comment = async (e: any) => {
     e.preventDefault(); if (!text.trim()) return setErr('Write a comment before posting')
-    try { await api.post('/comments', { workspaceId: wsId, feedbackId: Number(id), userId: user.id, author: user.name, text: text.trim(), createdAt: new Date().toISOString() }); setText(''); setErr(''); cm.reload() } catch { toast('Comment failed', 'error') }
+    try { await api.post('/comments', { workspaceId: wsId, feedbackId: Number(id), userId: user.id, author: user.name, text: text.trim(), createdAt: new Date().toISOString() }); setText(''); setErr(''); cm.reload(); setTimeout(cm.reload, 150) } catch { toast('Comment failed', 'error') }
   }
   const del = async () => { if (!confirm('Delete this feedback? This cannot be undone.')) return; try { await api.delete('/feedback/' + id); logAct(wsId, user, 'deleted feedback: ' + it?.title); toast('Deleted'); nav('/feedback') } catch { toast('Delete failed', 'error') } }
   const linked = fb.data.filter(d => d.duplicateOf === it?.id), mine = vt.data.some(v => v.userId === user.id)

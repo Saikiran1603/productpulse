@@ -8,7 +8,8 @@ export function useRes(res: string | null, q: R = {}) {
   const load = useCallback(() => {
     if (!res) { setL(false); return }
     setL(true)
-    api.get('/' + res, { params: q }).then(r => { setData(r.data); setE('') })
+    const params = import.meta.env.DEV ? q : { ...q, _cacheBust: Date.now() }
+    api.get('/' + res, { params }).then(r => { setData(r.data); setE('') })
       .catch(() => setE(`Could not load ${res}. Check that JSON Server is running.`)).finally(() => setL(false))
   }, [res, key])
   useEffect(load, [load])
